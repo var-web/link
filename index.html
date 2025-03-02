@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>فتح تلقائي كل 3 ثواني</title>
+    <style>
+        body {
+            direction: rtl;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #counter {
+            font-size: 24px;
+            color: #2196F3;
+            font-weight: bold;
+        }
+
+        #status {
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .warning {
+            color: #ff5722;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نظام الفتح التلقائي</h1>
+        <p>عدد المحاولات: <span id="counter">0</span></p>
+        <p id="status">جاري التهيئة...</p>
+        <p class="warning">ملاحظة: قد تحتاج إلى السماح بالنوافذ المنبثقة لهذا الموقع</p>
+    </div>
+
+    <script>
+        let counter = 0;
+        const link = 'https://www.effectiveratecpm.com/e1r7gz70wx?key=c59bdf5dd8b1ff70073480a900b9e825';
+        
+        function openLink() {
+            counter++;
+            document.getElementById('counter').textContent = counter;
+            
+            const newWindow = window.open(link, '_blank');
+            const statusElement = document.getElementById('status');
+            const now = new Date().toLocaleTimeString();
+            
+            if (newWindow && !newWindow.closed) {
+                statusElement.innerHTML = `تم فتح الرابط بنجاح في: ${now}`;
+                statusElement.style.color = "#4CAF50";
+            } else {
+                statusElement.innerHTML = `فشل في فتح الرابط في: ${now} - يرجى السماح بالنوافذ المنبثقة`;
+                statusElement.style.color = "#f44336";
+            }
+        }
+
+        // بدء التشغيل بعد تحميل الصفحة
+        window.onload = function() {
+            openLink(); // التشغيل الأولي الفوري
+            setInterval(openLink, 3000); // تكرار كل 3 ثواني
+        };
+    </script>
+</body>
+</html>
