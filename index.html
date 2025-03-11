@@ -8,12 +8,14 @@
     /* تنسيق CSS */
     * {
       margin: 0;
+      background-color: black;
       padding: 0;
       box-sizing: border-box;
     }
 
     body, html {
       height: 100%;
+      width: 100%;
       overflow: hidden;
     }
 
@@ -26,23 +28,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: black;
-    }
-
-    #full-screen-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      background-image: url('https://www.mediafire.com/convkey/df7f/aemaup1e79daq22zg.jpg'); /* ضع هنا رابط الصورة */
+      background-size: contain; /* هذا يضمن أن الصورة تظهر كاملة */
+      background-position: center; /* يجعل الصورة في مركز الشاشة */
+      background-repeat: no-repeat; /* يمنع تكرار الصورة */
     }
   </style>
 </head>
 <body>
-  <div class="image-container">
-    <img src="https://www.mediafire.com/convkey/df7f/aemaup1e79daq22zg.jpg" alt="صورة" id="full-screen-image">
-  </div>
+  <div class="image-container"></div>
   <script>
-    // كود JavaScript
-    // في هذه الحالة لا حاجة إلى جافاسكربت إضافي إلا إذا أردت تأثيرات أو وظائف تفاعلية أخرى
+    // في هذه الحالة لا نحتاج إلى جافاسكربت
   </script>
 </body>
 </html>
